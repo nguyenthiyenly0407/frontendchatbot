@@ -1,0 +1,28 @@
+<div class="chat-container">
+    <div class="chat-window">
+      <div *ngFor="let m of messages" class="message-wrapper" [ngClass]="{'user': m.fromUser, 'bot': !m.fromUser}">
+        <div class="avatar">
+          <img [src]="m.fromUser ? 'assets/user-avatar.png' : 'assets/bot-avatar.png'" alt="avatar">
+        </div>
+        <div class="bubble">
+          {{ m.text }}
+        </div>
+      </div>
+    </div>
+    <div class="input-area">
+      <input
+        type="text"
+        placeholder="Type a message..."
+        [(ngModel)]="newMsg"
+        (keydown.enter)="sendMessage()"
+      />
+      <button (click)="sendMessage()">
+        <!-- bạn có thể dùng icon SVG hay font-icon -->
+        <span class="send-icon">➤</span>
+      </button>
+      <button class="mic-button">
+        🎤
+      </button>
+    </div>
+  </div>
+  

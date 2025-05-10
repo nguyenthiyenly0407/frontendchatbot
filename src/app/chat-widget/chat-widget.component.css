@@ -1,0 +1,136 @@
+/* ----- Nút bong bóng ----- */
+.chat-toggle-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #4a8;
+  color: white;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+/* ----- Toàn widget ----- */
+.chat-widget {
+  position: fixed;
+  /* thay vì bottom: 90px cũ, tính lại sao cho
+     khung chat nằm ngay trên nút bong bóng */
+  bottom: calc(24px /* khoảng cách của nút*/ 
+             + 56px /* chiều cao nút*/ 
+             + 8px  /* khoảng cách lề*/);
+  right: 24px;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fafafa;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  overflow: hidden;
+  z-index: 1000;
+}
+
+/* ----- Header ----- */
+.chat-header {
+  flex: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: #4a8;
+  color: white;
+  font-weight: bold;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.chat-header .close-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* ----- Messages: chỉ scroll dọc ----- */
+.chat-window {
+  flex: 1;
+  padding: 12px;
+  background: #fff;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Message wrapper ----- */
+.message-wrapper {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+.message-wrapper.user {
+  flex-direction: row-reverse;
+}
+.message-wrapper.user .bubble {
+  background: #4a8;
+  color: #fff;
+  border-radius: 12px 12px 0 12px;
+}
+.message-wrapper.user .avatar {
+  margin-left: 8px;
+}
+.message-wrapper.bot .bubble {
+  background: #e2e2e2;
+  color: #333;
+  border-radius: 12px 12px 12px 0;
+}
+.message-wrapper.bot .avatar {
+  margin-right: 8px;
+}
+
+/* Avatar hình tròn */
+.avatar img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+/* Bubble text */
+.bubble {
+  max-width: 70%;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* ----- Input area cố định đáy ----- */
+.input-area {
+  flex: none;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-top: 1px solid #ddd;
+  background: #f5f5f5;
+}
+.input-area input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+  font-size: 14px;
+}
+.input-area button {
+  background: transparent;
+  border: none;
+  margin-left: 8px;
+  font-size: 18px;
+  cursor: pointer;
+}
+.input-area .mic-button {
+  font-size: 20px;
+}
